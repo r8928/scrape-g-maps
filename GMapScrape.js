@@ -20,6 +20,8 @@ class GMapScrape {
       while (NEXT_PAGES.length) {
         const x = this.getPlacesNext(NEXT_PAGES[0]);
       }
+
+      console.log(jsonFileName);
     }, 3000);
   }
 
