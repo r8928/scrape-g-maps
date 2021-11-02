@@ -4,6 +4,7 @@ const { BASE_URL, SEARCH_PREFIX, SEARCHES } = require("./env");
 
 const RESULTS = [];
 const NEXT_PAGES = []; // readJson("tokens-2021-08-05T16-54-33-331Z.json")["results"];
+const DONE_PAGES = new Set();
 
 const jsonFileName = new Date()
   .toISOString()
@@ -37,6 +38,15 @@ class GMapScrape {
 
   getPlacesNext(pagetoken) {
     console.log(`🚀 > getPlacesNext`, NEXT_PAGES.length);
+
+    if (DONE_PAGES.has(pagetoken)) {
+      NEXT_PAGES.shift();
+
+      return;
+    }
+
+    DONE_PAGES.add(pagetoken);
+
     const place = fetch(BASE_URL.concat("&pagetoken=").concat(pagetoken));
     this.addResults(place, true);
   }
