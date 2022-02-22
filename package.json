@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Scrape Google Maps search results",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "jsonfile": "^6.1.0",
     "sync-request": "^6.1.0"

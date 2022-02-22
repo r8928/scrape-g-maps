@@ -37,7 +37,7 @@ class GMapScrape {
   }
 
   getPlacesNext(pagetoken) {
-    console.log(`🚀 > getPlacesNext`, NEXT_PAGES.length);
+    console.log(`🚀 > getPlacesNext`, pagetoken.substr(-5), NEXT_PAGES.length);
 
     if (DONE_PAGES.has(pagetoken)) {
       NEXT_PAGES.shift();
